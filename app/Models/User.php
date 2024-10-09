@@ -39,10 +39,13 @@ class User extends Authenticatable
 {
 	//protected $table = 'PFX_users';
 
-	/*protected $casts = [
+	protected $casts = [
 		'email_verified_at' => 'datetime',
 		'id_role' => 'int'
-	];*/
+	];
+
+    use HasFactory, Notifiable;
+
 
 	protected $hidden = [
 		'password',
@@ -66,6 +69,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
+				'id_role' => 'int',
             'password' => 'hashed',
         ];
 	}
